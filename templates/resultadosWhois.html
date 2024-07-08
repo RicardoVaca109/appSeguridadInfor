@@ -11,6 +11,8 @@
         <p style="color: red;">{{ error }}</p>
     {% else %}
         <pre>{{ whois_data | tojson(indent=2) }}</pre>
+        <a href="{{ url_for('download', file_path=file_path) }}">Descargar Excel</a>
     {% endif %}
+    <a href="/">Volver</a>
 </body>
 </html>

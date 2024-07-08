@@ -25,11 +25,10 @@
                 {% endfor %}
             </tbody>
         </table>
+        <a href="{{ url_for('download', file_path=file_path) }}">Descargar Excel</a>
     {% else %}
         <p>No se encontraron correos electrónicos.</p>
     {% endif %}
     <a href="/">Volver</a>
 </body>
 </html>
-
-

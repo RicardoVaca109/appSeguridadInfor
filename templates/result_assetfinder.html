@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados de Subdominios</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultsSubdomainapi.css') }}">
+    <title>Resultados de Assetfinder</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultsAssetfinder.css') }}">
 </head>
 <body>
-    <h1>Resultados de Subdominios</h1>
+    <h1>Resultados de Assetfinder</h1>
     {% if error %}
         <p>{{ error }}</p>
     {% elif subdomains %}
@@ -15,16 +15,12 @@
             <thead>
                 <tr>
                     <th>Subdominio</th>
-                    <th>IP</th>
-                    <th>Cloudflare</th>
                 </tr>
             </thead>
             <tbody>
                 {% for subdomain in subdomains %}
                     <tr>
-                        <td>{{ subdomain.subdomain }}</td>
-                        <td>{{ subdomain.ip }}</td>
-                        <td>{{ 'Sí' if subdomain.cloudflare else 'No' }}</td>
+                        <td>{{ subdomain }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

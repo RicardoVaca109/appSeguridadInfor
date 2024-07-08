@@ -28,15 +28,11 @@
     </form>
 
     <h2>Assetfinder</h2>
-    <form id="assetfinder-form">
-        <label for="assetfinder-domain">Dominio:</label>
-        <input type="text" id="assetfinder-domain" required>
-        <button type="button" onclick="submitAssetfinderForm()">Buscar</button>
+    <form action="/assetfinder" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar con Assetfinder</button>
     </form>
-
-    <div id="assetfinder-results" class="results">
-        <!-- Los resultados se mostrarán aquí -->
-    </div>
 
     <h2>The Harvester Mails</h2>
     <form action="/theharvester" method="POST">
@@ -51,34 +47,5 @@
         <input type="text" id="domain" name="domain" required>
         <button type="submit">Buscar WHOIS</button>
     </form>
-
-    <script>
-        function submitAssetfinderForm() {
-            const domain = document.getElementById('assetfinder-domain').value;
-            const resultsContainer = document.getElementById('assetfinder-results');
-
-            fetch('/assetfinder', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ domain: domain })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar los resultados en el contenedor
-                if (data.subdomains && data.subdomains.length > 0) {
-                    const subdomainsList = data.subdomains.map(subdomain => `<li>${subdomain}</li>`).join('');
-                    resultsContainer.innerHTML = `<h3>Subdominios encontrados:</h3><ul>${subdomainsList}</ul>`;
-                } else {
-                    resultsContainer.innerHTML = '<p>No se encontraron subdominios.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                resultsContainer.innerHTML = '<p>Error al buscar subdominios.</p>';
-            });
-        }
-    </script>
 </body>
 </html>
