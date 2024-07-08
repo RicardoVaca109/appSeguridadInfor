@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar correos con The Harvester</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Buscar correos con The Harvester</h1>
+    <form method="post">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>

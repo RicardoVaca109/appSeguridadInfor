@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de The Harvester</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultsTheHarvester.css') }}">
+</head>
+<body>
+    <h1>Resultados de The Harvester</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% elif emails %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Correo Electrónico</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for email in emails %}
+                    <tr>
+                        <td>{{ email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No se encontraron correos electrónicos.</p>
+    {% endif %}
+    <a href="/">Volver</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados WHOIS</title>
+</head>
+<body>
+    <h1>Resultados WHOIS</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <pre>{{ whois_data | tojson(indent=2) }}</pre>
+    {% endif %}
+</body>
+</html>

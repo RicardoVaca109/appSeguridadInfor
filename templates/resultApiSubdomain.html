@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Subdominios</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultsSubdomainapi.css') }}">
+</head>
+<body>
+    <h1>Resultados de Subdominios</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% elif subdomains %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Subdominio</th>
+                    <th>IP</th>
+                    <th>Cloudflare</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subdomain in subdomains %}
+                    <tr>
+                        <td>{{ subdomain.subdomain }}</td>
+                        <td>{{ subdomain.ip }}</td>
+                        <td>{{ 'Sí' if subdomain.cloudflare else 'No' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No se encontraron subdominios.</p>
+    {% endif %}
+    <a href="/">Volver</a>
+</body>
+</html>

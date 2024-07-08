@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acciones</title>
+</head>
+<body>
+    <h1>Acciones</h1>
+    <form action="/subdominios" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar Subdominios (API)</button>
+    </form>
+
+    <form action="/amass" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar Redes y Activos (Amass)</button>
+    </form>
+
+    <h2>Assetfinder</h2>
+    <form action="/assetfinder" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar</button>
+    </form>
+    <h2>The Harvester Mails</h2>
+    <form action="/theharvester" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar con The Harvester</button>
+    </form>
+
+    <h2>WHOIS</h2>
+    <form action="/whois" method="POST">
+        <label for="domain">Dominio:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Buscar WHOIS</button>
+    </form>
+
+    
+</body>
+</html>
